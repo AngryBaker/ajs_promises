@@ -9,11 +9,7 @@ export default class GameSavingLoader {
         return json(result);
       })
       .then((string) => {
-        const obj = JSON.parse(string);
-        const saveObj = new GameSave(obj);
-        return new Promise(resolve => {
-          resolve(saveObj);
-        });
+        return new GameSave(JSON.parse(string));
       });
     return value;
   }
